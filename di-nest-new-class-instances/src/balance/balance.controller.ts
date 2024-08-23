@@ -7,6 +7,7 @@ export class BalanceController {
     private balanceServices : BalanceService
     constructor(){
         this.balanceServices = new BalanceService(new BalanceRepository())
+        console.log('BalanceService instance is created')
     }
     @Get()
     getBalance(){

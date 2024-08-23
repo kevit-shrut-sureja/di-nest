@@ -6,4 +6,8 @@ import { BalanceService } from './balance.service';
   controllers: [BalanceController],
   // providers: [BalanceService]
 })
-export class BalanceModule {}
+export class BalanceModule {
+  constructor(){
+    console.log('BalanceModule instance is created')
+  }
+}

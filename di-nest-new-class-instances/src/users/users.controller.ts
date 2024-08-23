@@ -7,6 +7,7 @@ export class UsersController {
     private userService : UsersService
     constructor(){
         this.userService = new UsersService(new UsersRepository())
+        console.log('UserController instance is created')
     }
     @Get()
     findUsers(){

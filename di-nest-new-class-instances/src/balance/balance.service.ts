@@ -9,19 +9,17 @@ export class BalanceService {
   constructor(balanceRepository: BalanceRepository) {
     this.balanceRepository = balanceRepository;
     this.usersRepository = new UsersRepository();
+    console.log('BalanceService instance is created')
   }
   // constructor(balanceRepository : BalanceRepository, usersRepository : UsersRepository){
   //     this.balanceRepository = balanceRepository
   //     this.usersRepository = usersRepository
   // }
   getUsersBalance() {
-    const balances = this.balanceRepository.getBalances();
+    const balances : any = this.balanceRepository.getBalances();
     const users = this.usersRepository.getUsers();
     // Combine balances and users into one array
-    const combined = balances.map((balanceItem, index) => ({
-      ...balanceItem,
-      ...users[index],
-    }));
+    const combined = balances.concat(users)
 
     return combined;
   }
